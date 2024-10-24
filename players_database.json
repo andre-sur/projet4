@@ -1,0 +1,64 @@
+{
+ "joueurs": [
+  {
+   "surname": "Albert",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "B\u00c3\u00a9atrice",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Carole",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Denis",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Edouard",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Fran\u00c3\u00a7ois",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "G\u00c3\u00a9rard",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Hector",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Isabelle",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Jules",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Karl",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  },
+  {
+   "surname": "Louis",
+   "firstname": "Alice",
+   "birthday": "alice@example.com"
+  }
+ ]
+}
