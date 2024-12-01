@@ -3,62 +3,62 @@
   {
    "surname": "Albert",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
-   "surname": "B\u00c3\u00a9atrice",
+   "surname": "Beatrice",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Carole",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Denis",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Edouard",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
-   "surname": "Fran\u00c3\u00a7ois",
+   "surname": "Francois",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Gérard",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Hector",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Isabelle",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Jules",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Karl",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   },
   {
    "surname": "Louis",
    "firstname": "Alice",
-   "birthday": "alice@example.com"
+   "birthday": "0"
   }
- ]
+]
 }

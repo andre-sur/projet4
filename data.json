@@ -1,0 +1,32 @@
+{
+    "tournaments": {
+        "1": {
+            "players": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f"
+            ],
+            "matches": [
+                "z",
+                "y"
+            ],
+            "name": "alberto rossignol",
+            "location": "Londres",
+            "start": "2024-12-01",
+            "end": "2024-12-05",
+            "num_round": "3",
+            "description": "Superbe"
+        },
+        "2": {
+            "name": "Tournoi 2",
+            "location": "Londres",
+            "start": "2024-12-10",
+            "end": "2024-12-15",
+            "num_round": 5,
+            "description": "Deuxième tournoi"
+        }
+    }
+}

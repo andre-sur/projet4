@@ -1,0 +1,20 @@
+NOTES EXPLICATIVES
+
+VUES
+
+Menu : boutons associées à des fonctions via un dictionnaire (paramétrable)
+choice_yesno : fenêtre demande oui ou non à une question
+data_input_options : fenêtre demande (x) inputs et les renvoie
+show_text : fenêtre simple montre un texte puis "ok"
+
+
+CONTROLES
+
+Lecture et écriture de fichier
+
+Gestion de matches aléatoires automatisée
+
+
+MODELE
+
+Extraction de listes
