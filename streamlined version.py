@@ -96,63 +96,69 @@ class Controle_app :
                 file_name="tournament_data.json"
             text,last_one=Controle_app.list_of_tournament(file_name)
             print(text)
-            chosen_tournament=input("Quel tournoi voulez-vous afficher ? (0 pour en créer un)")
-       
-       # ongoing=Tournament()
-        
-            if chosen_tournament=="0":
-                tournoi=Tournament()
-                tournoi.input_data_tournament((str(int(last_one)+1)))
-            
-            tournoi=Controle_app.load_tournament_from_json(chosen_tournament,file_name)
-            tournoi.show_basic_tournament()
-            
-            suite=""
-            while suite not in ["1","2","3","4"]:
-                suite=input("(1) Modifier ce tournoi (données de base) "
-                            "\n(2) Ajouter une liste de joueurs"
-                            "\n(3) Jouer un round de "+str(tournoi.num_round)+" matches"
-                            "\n(4) Quitter l'application."
-                            "\n>>>")
+            chosen_tournament=""
+            list_options=[str(i) for i in range(0, int(last_one) + 1)]
+            print(list_options)
+            while chosen_tournament not in list_options:
+                chosen_tournament=input("Quel tournoi ? (0 pour en créer un) >>>")
                 
-                if suite=="1":
-                    tournoi.input_data_tournament(chosen_tournament)
-                if suite=="2":
-                    tournoi.choose_participants(chosen_tournament)
-                if suite=="3":
-                    if tournoi.players in [None, '', [], {}, ()] or len(tournoi.players)==0 or len(tournoi.players)% 2 != 0:
-                        print("Aucun joueur ne participe ou un nombre impair de joueurs \nMerci d'ajouter des joueurs.")
+            if chosen_tournament=="0":
+                        tournoi=Tournament()
+                        tournoi.input_data_tournament((str(int(last_one)+1)))
+            else:   
+                    tournoi=Controle_app.load_tournament_from_json(chosen_tournament,file_name)
+                    tournoi.show_basic_tournament()
+                    
+            sub_choice=""
+            while sub_choice not in ["1","2","3","4"]:
+                    sub_choice=input("  (1) Modifier ce tournoi (données de base) "
+                                "\n  (2) Ajouter/Modifier la liste des participants"
+                                "\n  (3) Jouer un round de "+str(tournoi.num_round)+" matches"
+                                "\n  (4) Sélectionner un autre tournoi."
+                                "\n  (5) Quitter l'application."
+                                "\n   >>>")
+                    
+                    if sub_choice=="1":
+                        tournoi.input_data_tournament(chosen_tournament)
+                    if sub_choice=="2":
+                        tournoi.choose_participants(chosen_tournament)
+                    if sub_choice=="3":
+                        if tournoi.players in [None, '', [], {}, ()] or len(tournoi.players)==0 or len(tournoi.players)% 2 != 0:
+                            print("Aucun joueur ne participe ou un nombre impair de joueurs \nMerci d'ajouter des joueurs.")
+                            Controle_app.main_menu()
+                        else:
+                                if tournoi.num_round=="" or tournoi.num_round not in ["1","2","3","4"]:
+                                    print("Il manque le nombre de match pour ce tournoi ou bien trop de matches (>4).")
+                                    print("Prière de changer cette données avant de continuer.")
+                                    print("Retour au Menu Principal...")
+
+                                    Controle_app.main_menu()
+                                else:
+                                    choice=""
+                                    while choice not in ["1","2","3"]:
+                                        choice=input("(1) Matches virtuels aléatoires"
+                                                    "\n(2) Matches réels et saisie clavier"
+                                                    "\n(3) Retour au Menu" 
+                                                    "\n>>>")
+                                        if choice=="1":
+                                            tournoi.play_round("random")
+                                        if choice=="2":
+                                            tournoi.play_round("input")    
+                                        if choice=="3": 
+                                            Controle_app.main_menu()  
+                                        print("MATCHES :")
+                                        print(tournoi.show_matches())
+                                        ask_save=input("Vous voulez sauvegarder ce round (o/n) ?")
+                                        if ask_save=="o":
+                                            Controle_app.record()
+                                            tournoi.change_specific_data(chosen_tournament, name_file="tournament_data.json", key_1="matches", new_value=tournoi.matches)
+                                        else:
+                                            Controle_app.main_menu()
+                    if sub_choice=="4":
                         Controle_app.main_menu()
-                    else:
-                            if tournoi.num_round=="" or tournoi.num_round not in ["1","2","3","4"]:
-                                print("Pas de nombre de match pour ce tournoi ou trop de matches (>4).")
-                                print("Merci de changer cette données avant de continuer.")
-                                print("Retour au Menu Principal")
-                                
-                                Controle_app.main_menu()
-                            else:
-                                choice=""
-                                while choice not in ["1","2","3"]:
-                                    choice=input("(1) Matches virtuels aléatoires"
-                                                 "\n(2) Matches réels et saisie clavier"
-                                                  "\n(3) Retour au Menu" 
-                                                  "\n>>>")
-                                    if choice=="1":
-                                        tournoi.play_round("random")
-                                    if choice=="2":
-                                        tournoi.play_round("input")    
-                                    if choice=="3": 
-                                        Controle_app.main_menu()  
-                                    print("MATCHES :")
-                                    print(tournoi.show_matches())
-                                    ask_save=input("Vous voulez sauvegarder ce round (o/n) ?")
-                                    if ask_save=="o":
-                                        Controle_app.record()
-                                        tournoi.change_specific_data(chosen_tournament, name_file="tournament_data.json", key_1="players", new_value=tournoi.matches)
-                                    else:
-                                         Controle_app.main_menu()
-                if suite=="4":
-                     exit()
+                    
+                    if sub_choice=="5":
+                        exit()
 #MODELE
     def list_of_tournament (file_name):
         text=""
@@ -162,11 +168,13 @@ class Controle_app :
                 
         except FileNotFoundError:
             # Si le fichier n'existe pas, initialiser une liste vide
-            all_datas = []
+            all_datas = '"tournaments": {"1": {}}'
         
         list = []
 
 # Parcourir les tournois dans le dictionnaire
+        if not all_datas:
+             all_datas = '"tournaments": {"1": {}}'
         for tournament_id, tournament_data in all_datas['tournaments'].items():
             text+= str(tournament_id)+ " - " + tournament_data['name']+"\n"
 
@@ -196,33 +204,10 @@ class Tournament:
     # Sauvegarder les données modifiées dans le fichier JSON
         with open(name_file, 'w', encoding='utf-8') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
-#MODELE
-    def change_list_players(self,file_name,new_list):
-      
-    # Lire le contenu du fichier JSON existant
-           
-                with open(file_name, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                
-                # Vérifier si la clé existe et modifier sa valeur
-                    if "players" in data:
-                        data["players"] = new_list
-                        self.players=new_list
-                        return(f"Liste des joueurs modifiée avec succès.")
-                    else:
-                        print(f"ERREUR.")
-                        return
-                
-                # Sauvegarder les modifications dans le fichier JSON
-                with open(name_file, 'w', encoding='utf-8') as f:
-                    json.dump(data, f, indent=4, ensure_ascii=False)
-                    Controle_app.record()
-                    print(f"Fichier '{name_file}' mis à jour avec succès.")
-        
 
 #MODELE
     def change_data_file (self,tournament,name_file,new_dict):
-        """Changer des données dans un fichier : quelle catégorie, quelle données"""
+        """Changer des données dans un fichier : données de base (pas joueurs, ni tournois joués)"""
         #name_file = "tournament_data.json"
 
         try:
@@ -236,9 +221,6 @@ class Tournament:
 
         all_datas['tournaments'][tournament] = new_dict
 
-        #all_datas[tournament] = new_dict
-        # Modifier l'enregistrement
-
         # Réécrire les données mises à jour dans le fichier JSON
         with open(name_file, 'w', encoding='utf-8') as fichier_json:
             json.dump(all_datas, fichier_json, indent=4)
@@ -250,14 +232,17 @@ class Tournament:
          print("Voici la liste des joueurs actuellement enregistrés :"
                +"\n"+current_players+
                "\nTapez Entrée si vous excluez le joueur"
-               "\nTapez x si vous incluez le joueur.")
+               "\nTapez x ou X si vous incluez le joueur.")
          file_name="players_database.json"
          all_players = self.get_list_player_json("players_database.json")
          for player in all_players:
-              add_or_not=input(player+" "*(20-len(player))+"  : ")
-              if add_or_not=="x" or add_or_not=="X":
+              decision=input(player+" "*(20-len(player))+"  : ")
+              if decision=="x" or decision=="X":
                 chosen_list.append(player)
          text_chosenlist=", ".join(chosen_list)
+         if len(chosen_list)<2 or len(chosen_list) % 2 != 0 :
+              print("Liste trop courte ou nombre de participants impair.")
+              self.choose_participants(tournament)
          print("Voici la liste des joueurs demandée : "+text_chosenlist)
          
          print("(1) Confirmer et sauvegarder"
@@ -265,8 +250,9 @@ class Tournament:
          
          decision =""
          while decision not in ["1","2"]:
-               decision=input("Votre décision >>>")
-               if decision=="1":
+               decision = input("Votre décision >>> ")
+               if decision == "1":
+                    #Modification spécifique de la liste des joueurs pour le tournoi en cours
                     self.change_specific_data(tournament,name_file="tournament_data.json",key_1="players",new_value=chosen_list)
                     Controle_app.record()
 
@@ -278,7 +264,7 @@ class Tournament:
                     Controle_app.main_menu()
                 
     #CONTROLE
-    def play_round(self,input_or_random):
+    def play_round_suspendu(self,input_or_random):
         save_list=[]
         player=[]
         sub_list=[]
@@ -326,7 +312,8 @@ class Tournament:
                         storage_score[player1] += score1
                         storage_score[player2] += score2
             
-            new_list=sorted(storage_score, key=lambda k: storage_score[k], reverse=True)
+            #new_list=sorted(storage_score, key=lambda k: storage_score[k], reverse=True)
+            new_list=self.ranking_players()
             list_players=new_list      
             #tester les doublons et modifier la liste si c'est le cas
             list_players=generate_set_players(input_list=new_list,past_matches=past_matches)
@@ -347,6 +334,66 @@ class Tournament:
         #self.change_specific_data(tournament="1", name_file="tournament_data.json", key_1="matches", new_value=self.matches)
 
         return(new_list,save_list)
+    
+    def play_round(self,input_or_random):
+        save_list=[]
+        player=[]
+        sub_list=[]
+        past_matches=[]
+        score1=0
+        score2=0
+
+        list_players=self.players
+        
+        score=[0]*len(self.players)
+        all_past=[]
+        storage_score=dict(zip(self.players, score))
+
+        nbre=int(len(self.players))
+        tours=int(self.num_round)
+
+        for turn in range (0,tours):  
+            sub_list=[]
+            for i in range(0,nbre,2):
+                    
+                        player1=list_players[i]
+                        player2=list_players[i+1]
+                        print(player1+" VERSUS "+player2)
+                        #current_match=Match(player1,player2)
+                        #current_match.play_match_random()
+                        if input_or_random=="input":  
+                            score1,score2 = Controle_app.play_match_input(player1,player2)
+                        elif input_or_random=="random":
+                             score1,score2 = Controle_app.play_match_random(player1,player2)
+                     
+                        sub_list.append(([player1,score1],[player2,score2]))
+
+                        #On ajoute à la liste des paires déjà jouées la paire actuelle
+                        past_matches.append({player1,player2})
+
+                        storage_score[player1] += score1
+                        storage_score[player2] += score2
+            
+            new_list=sorted(storage_score, key=lambda k: storage_score[k], reverse=True)
+                 
+            #tester les doublons et modifier la liste si c'est le cas
+            #list_players=generate_set_players(new_list,past_matches)
+            
+          
+            save_list.append(sub_list)
+            list_players=generate_set_players(new_list,past_matches)
+            #self.change_specific_data("tournament_data.json",key_1="matches",new_value=save_list)
+        all_past.append(past_matches)
+  
+        
+        print("la save list à enregistrer dans le fichier")
+        self.matches=save_list
+        #print(self.matches)
+        
+        #self.change_specific_data(tournament="1", name_file="tournament_data.json", key_1="matches", new_value=self.matches)
+
+        return(new_list,save_list)
+
 
 #MODELE
     def get_list_player_json_2(self,name_file):
@@ -372,7 +419,9 @@ class Tournament:
         print("JOUEURS              : "+self.show_players()) 
         print("MATCHES :")
         print(self.show_matches())
-
+        
+        print(self.show_ranking())
+    
 #VUE
     def input_data_tournament(self,tournament):
         dictio={}
@@ -474,31 +523,38 @@ class Tournament:
         list = [joueur["surname"] for joueur in data_1["joueurs"]]
         return(list)
     
+
     #trash
     def show_players(self):
          text=""
          for player in self.players:
               text+=player+", "
+         text=text[:-2]
          return(text)
-         #v.show_text("joueurs",text)
     
-    def get_ranking(self) :
+    def show_ranking(self) :
          all_matches=self.matches
-         data1=self.players
-         data2=[0]*len(self.players)
-
-         ranked_players=dict(zip(data1, data2))
+         the_players=self.players
+         the_scores=[0]*len(self.players)
+         text="CLASSEMENT :"
+        # Faire un dictionnaire avec joueurs en clé et score en valeur pour 
+        # extraire les données contenues dans l'archivage des parties
+        # et faire un cumul pour chaque joueur afin de faire un classement
+         ranked_players=dict(zip(the_players, the_scores))
 
          for match in all_matches : 
                 
                 for m in match:
-                    ranked_players[m[0][0]]+=m[0][1]
-                    ranked_players[m[1][0]]+=m[1][1]
+                    ranked_players [m[0][0]] += m[0][1]
+                    ranked_players [m[1][0]] += m[1][1]
         
-         sorted_players=dict(sorted(ranked_players.items(), key=lambda item: item[1], reverse=True))
+         sorted_players={k: v for k, v in sorted(ranked_players.items(), key=lambda item: item[1], reverse=True)}
 
-         return(sorted_players)            
-#TRASH
+         for key in sorted_players:
+            text+=f"{key} ({sorted_players[key]}),"
+         text=text[:-1]
+         return(text)            
+#UNFOLD LA LISTE DES PARTIES SAUVEES
     def show_matches (self):
         all_matches=self.matches
         text=""
@@ -508,23 +564,36 @@ class Tournament:
         t=1
         
         for match in all_matches : 
-                text+="\nRound"+str(t)+"\n"
+                text+="\n   ROUND # "+str(t)+"\n"
                 for m in match:
     
-                     text+=m[0][0]+" vs "+m[1][0]+" : "+str(m[0][1])+ "-"+str(m[1][1])+"\n"
+                     text+=m[0][0]+" vs "+m[1][0]+" "*(20-(len(m[0][0]+" vs "+m[1][0])))+" : "+str(m[0][1])+ "-"+str(m[1][1])+"\n"
                      
                         
                 t=t+1 
         return(text)
-        # v.show_text("matches",text)
+     
+    
+    #UNFOLD LA LISTE DES PARTIES SAUVEES
+    def ranking_players (self):
+        all_matches=self.matches
 
-    def play_round_input(self):
-        list_players=self.players
-        #for j in range (0,len(self.players)):
-            # list_players.append(self.players[j].surname)
-        result=v.choice_three_options(list_players)
-        print("result")
-        print(result)
+        score_players={}
+        #print(all_matches)
+        t=1
+        for match in all_matches : 
+                text+="\nRound"+str(t)+"\n"
+                for m in match:
+                     
+                     score_players[m[0][0]]+=m[0][1]
+                     score_players[m[1][0]]+=m[1][1]                
+                        
+
+                t=t+1 
+        ranking_players=sorted(score_players, key=score_players.get, reverse=True)
+        return(ranking_players)
+
+
 
 #à voir
 def ranking_players (dictionnary):
@@ -635,7 +704,7 @@ def load_tournament_from_json(tournament,filename):
     # Crée une instance de Person en utilisant les données du fichier JSON
     ongoing_tournament = Tournament(name=data.get("name",""), location=data.get("location",""), start=data.get("start","")\
                                          ,end=data.get("end",""),num_round=data.get("num_round",""),description=data.get("description","")\
-                                            ,players=data.get("players","test"),matches=data.get("matches",""))
+                                            ,players=data.get("players",""),matches=data.get("matches",""))
 
     return ongoing_tournament
 

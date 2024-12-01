@@ -13,31 +13,31 @@
                 [
                     [
                         [
-                            "a",
-                            0
+                            "albert",
+                            0.5
                         ],
                         [
-                            "b",
-                            1
+                            "bernard",
+                            0.5
                         ]
                     ],
                     [
                         [
-                            "c",
-                            0
+                            "claude",
+                            1
                         ],
                         [
-                            "d",
-                            1
+                            "denis",
+                            0
                         ]
                     ],
                     [
                         [
-                            "e",
+                            "edouard",
                             0
                         ],
                         [
-                            "f",
+                            "fabien",
                             1
                         ]
                     ]
@@ -45,63 +45,63 @@
                 [
                     [
                         [
-                            "b",
-                            0.5
+                            "claude",
+                            1
                         ],
                         [
-                            "d",
-                            0.5
+                            "fabien",
+                            0
                         ]
                     ],
                     [
                         [
-                            "f",
-                            0
+                            "albert",
+                            1
                         ],
                         [
-                            "a",
-                            1
+                            "denis",
+                            0
                         ]
                     ],
                     [
                         [
-                            "c",
-                            0
+                            "bernard",
+                            0.5
                         ],
                         [
-                            "e",
-                            1
+                            "edouard",
+                            0.5
                         ]
                     ]
                 ],
                 [
                     [
                         [
-                            "b",
-                            0
-                        ],
-                        [
-                            "d",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "a",
+                            "claude",
                             0.5
                         ],
                         [
-                            "e",
+                            "albert",
                             0.5
                         ]
                     ],
                     [
                         [
-                            "f",
+                            "bernard",
+                            0.5
+                        ],
+                        [
+                            "fabien",
+                            0.5
+                        ]
+                    ],
+                    [
+                        [
+                            "edouard",
                             0
                         ],
                         [
-                            "c",
+                            "denis",
                             1
                         ]
                     ]
@@ -111,214 +111,17 @@
             "location": "Paris",
             "start": "2024-12-01",
             "end": "2024-12-05",
-            "num_round": "4",
+            "num_round": "3",
             "description": "Sous le pont"
         },
         "2": {
             "players": [
-                [
-                    [
-                        [
-                            "Albert",
-                            1
-                        ],
-                        [
-                            "Beatrice",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Carole",
-                            1
-                        ],
-                        [
-                            "Denis",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Edouard",
-                            0.5
-                        ],
-                        [
-                            "Francois",
-                            0.5
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Albert",
-                            1
-                        ],
-                        [
-                            "Carole",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Edouard",
-                            1
-                        ],
-                        [
-                            "Beatrice",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Francois",
-                            0
-                        ],
-                        [
-                            "Denis",
-                            1
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Albert",
-                            0
-                        ],
-                        [
-                            "Edouard",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Carole",
-                            1
-                        ],
-                        [
-                            "Francois",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Denis",
-                            1
-                        ],
-                        [
-                            "Beatrice",
-                            0
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Edouard",
-                            1
-                        ],
-                        [
-                            "Carole",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Albert",
-                            1
-                        ],
-                        [
-                            "Denis",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Francois",
-                            1
-                        ],
-                        [
-                            "Beatrice",
-                            0
-                        ]
-                    ]
-                ]
-            ],
-            "matches": [],
-            "name": "The Best Ever",
-            "location": "Nantes",
-            "start": "2024-12-10",
-            "end": "2024-12-15",
-            "num_round": "4",
-            "description": "Pr\u00e8s de la mairie"
-        },
-        "3": {
-            "players": [
-                [
-                    [
-                        [
-                            "Albert",
-                            0.5
-                        ],
-                        [
-                            "Beatrice",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
-                            "Denis",
-                            0
-                        ],
-                        [
-                            "Edouard",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Francois",
-                            0
-                        ],
-                        [
-                            "Hector",
-                            1
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Edouard",
-                            0.5
-                        ],
-                        [
-                            "Hector",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
-                            "Albert",
-                            0.5
-                        ],
-                        [
-                            "Denis",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
-                            "Beatrice",
-                            0.5
-                        ],
-                        [
-                            "Francois",
-                            0.5
-                        ]
-                    ]
-                ]
+                "albert",
+                "bernard",
+                "claude",
+                "denis",
+                "edouard",
+                "fabien"
             ],
             "matches": [],
             "name": "Super Pros",
@@ -326,7 +129,7 @@
             "start": "avril",
             "end": "aout",
             "num_round": "2",
-            "description": "Pr\u00e8s du port"
+            "description": "Près du port"
         }
     }
 }
