@@ -16,11 +16,11 @@
                     [
                         [
                             "Albert",
-                            0.5
+                            0
                         ],
                         [
                             "Beatrice",
-                            0.5
+                            1
                         ]
                     ],
                     [
@@ -36,11 +36,11 @@
                     [
                         [
                             "Edouard",
-                            0.5
+                            1
                         ],
                         [
                             "Francois",
-                            0.5
+                            0
                         ]
                     ],
                     [
@@ -57,17 +57,17 @@
                 [
                     [
                         [
-                            "Hector",
-                            0.5
+                            "Beatrice",
+                            0
                         ],
                         [
-                            "Albert",
-                            0.5
+                            "Edouard",
+                            1
                         ]
                     ],
                     [
                         [
-                            "Beatrice",
+                            "Hector",
                             0.5
                         ],
                         [
@@ -81,7 +81,7 @@
                             0.5
                         ],
                         [
-                            "Edouard",
+                            "Albert",
                             0.5
                         ]
                     ],
@@ -99,37 +99,37 @@
                 [
                     [
                         [
+                            "Edouard",
+                            0
+                        ],
+                        [
                             "Hector",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Beatrice",
+                            0.5
+                        ],
+                        [
+                            "Carole",
+                            0.5
+                        ]
+                    ],
+                    [
+                        [
+                            "Denis",
                             1
                         ],
                         [
-                            "Beatrice",
+                            "Francois",
                             0
                         ]
                     ],
                     [
                         [
                             "Albert",
-                            1
-                        ],
-                        [
-                            "Carole",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "Denis",
-                            0.5
-                        ],
-                        [
-                            "Francois",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
-                            "Edouard",
                             1
                         ],
                         [
@@ -158,43 +158,43 @@
                     [
                         [
                             "Albert",
-                            1
+                            0.5
                         ],
                         [
                             "Beatrice",
-                            0
+                            0.5
                         ]
                     ],
                     [
                         [
                             "Carole",
-                            0
+                            1
                         ],
                         [
                             "Gérard",
-                            1
+                            0
                         ]
                     ]
                 ],
                 [
                     [
                         [
-                            "Albert",
-                            1
+                            "Carole",
+                            0.5
                         ],
                         [
-                            "Gérard",
-                            0
+                            "Albert",
+                            0.5
                         ]
                     ],
                     [
                         [
                             "Beatrice",
-                            1
+                            0
                         ],
                         [
-                            "Carole",
-                            0
+                            "Gérard",
+                            1
                         ]
                     ]
                 ]

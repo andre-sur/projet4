@@ -24,7 +24,7 @@ class Match:
         self.sc2=None
         self.pair=None
 
-class Controle_app :
+class General :
 
     def generate_set_players (input_list,past_matches):
         output_list=[]
@@ -66,7 +66,7 @@ class Controle_app :
                         
             else:    
                 output_list.append(item_1)
-                output_list.append(elt2)
+                output_list.append(item_2)
                 list_tocheck.remove(item_1)
                 list_tocheck.remove(item_2)
     
@@ -136,7 +136,7 @@ class Controle_app :
                       
             #Appel à fonction pour récupérer la liste des tournois et le numéro du dernier enregistré 
             #(donc quantité total de tournois)
-            all_tournaments,last_one=Controle_app.list_of_tournament(file_name)
+            all_tournaments,last_one=General.list_of_tournament(file_name)
 
             print("\nLISTE DES TOURNOIS")
             print(all_tournaments)
@@ -150,7 +150,7 @@ class Controle_app :
                         tournoi=Tournament()
                         tournoi.input_data_tournament((str(int(last_one)+1)))
             else:   
-                    tournoi=Controle_app.load_tournament_from_json(chosen_tournament,file_name)
+                    tournoi=General.load_tournament_from_json(chosen_tournament,file_name)
                     tournoi.show_basic_tournament()
                     
             sub_choice=""
@@ -172,18 +172,18 @@ class Controle_app :
                             tournoi.delete_matches(chosen_tournament)
                             tournoi.choose_participants(chosen_tournament)
                         else :
-                             Controle_app.main_menu()
+                             General.main_menu()
                     if sub_choice=="3":
                         if tournoi.players in [None, '', [], {}, ()] or len(tournoi.players)==0 or len(tournoi.players)% 2 != 0:
                             print("Aucun joueur ne participe ou un nombre impair de joueurs \nMerci d'ajouter des joueurs.")
-                            Controle_app.main_menu()
+                            General.main_menu()
                         else:
                                 if tournoi.num_round=="" or tournoi.num_round not in ["1","2","3","4"]:
                                     print("Il manque le nombre de match pour ce tournoi ou bien trop de matches (>4).")
                                     print("Prière de changer cette données avant de continuer.")
                                     print("Retour au Menu Principal...")
 
-                                    Controle_app.main_menu()
+                                    General.main_menu()
                                 else:
                                     choice=""
                                     while choice not in ["1","2","3"]:
@@ -202,18 +202,18 @@ class Controle_app :
                                             time.sleep(1)
                                             tournoi.play_round("input")    
                                         if choice=="3": 
-                                             Controle_app.main_menu()  
+                                             General.main_menu()  
                                         print("MATCHES :")
                                         print(tournoi.show_matches())
                                         ask_save = input("Vous voulez sauvegarder ces "+tournoi.num_round+" rounds (o/n) ?")
                                         if ask_save == "o":
-                                            Controle_app.record()
+                                            General.record()
                                             tournoi.change_specific_data(chosen_tournament, name_file="tournament_data.json", key_1="matches", new_value=tournoi.matches)
-                                            Controle_app.main_menu()
+                                            General.main_menu()
                                         else:
-                                            Controle_app.main_menu()
+                                            General.main_menu()
                     if sub_choice == "4":
-                        Controle_app.main_menu()
+                        General.main_menu()
                     if sub_choice == "5":
                         exit()
 #MODELE
@@ -240,7 +240,7 @@ class Controle_app :
     def record():
         print("Enregistrement en cours...")
         time.sleep(1)
-        print("Paramétrage et synchronisation des modules...")
+        print("Sauvegarde dans un fichier Json...")
         time.sleep(2)
         print("Enregistrement confirmé.")
 
@@ -319,14 +319,14 @@ class Tournament:
                if decision == "1":
                     #Modification spécifique de la liste des joueurs pour le tournoi en cours
                     self.change_specific_data(tournament,name_file="tournament_data.json",key_1="players",new_value=chosen_list)
-                    Controle_app.record()
+                    General.record()
 
                     print("Merci. La nouvelle liste de participant(e)s est enregistrée.")
                     print("")
-                    Controle_app.main_menu()
+                    General.main_menu()
                         
                if decision == "2" :
-                    Controle_app.main_menu()
+                    General.main_menu()
 
     def play_round(self,input_or_random):
         save_list=[]
@@ -357,9 +357,9 @@ class Tournament:
 
                         if input_or_random=="input":  
                     
-                            score1,score2 = Controle_app.play_match (mode="input",player1=player1,player2=player2)
+                            score1,score2 = General.play_match (mode="input",player1=player1,player2=player2)
                         elif input_or_random=="random":
-                             score1,score2 = Controle_app.play_match(mode="random",player1="",player2="")
+                             score1,score2 = General.play_match(mode="random",player1="",player2="")
                      
                         sub_list.append(([player1,score1],[player2,score2]))
 
@@ -382,7 +382,7 @@ class Tournament:
             if turn>0:
                 #On appelle la fonction qui vérifie si déjà jouée et crée nouvelle paire si oui
                 #Elle renvoie une liste avec des paires non déjà jouées
-                list_players=Controle_app.generate_set_players(new_list,past_matches)
+                list_players=General.generate_set_players(new_list,past_matches)
     
         all_past.append(past_matches)
 
@@ -435,11 +435,11 @@ class Tournament:
             confirmation=input("Voulez-vous sauvegarder ces changements du Tournoi # "+str(tournament)+ " (o/n)?\n>>>")
             
             if confirmation == "n":
-                    Controle_app.main_menu()
+                    General.main_menu()
             elif confirmation == "o":
                 self.change_data_file(tournament,name_file="tournament_data.json",new_dict=dictio)
-                Controle_app.record()
-                Controle_app.main_menu()
+                General.record()
+                General.main_menu()
             
         return dictio
         
@@ -540,12 +540,12 @@ def generate_set_players (input_list,past_matches):
                     
         else:    
             output_list.append(item_1)
-            output_list.append(elt2)
+            output_list.append(item_2)
             list_tocheck.remove(item_1)
             list_tocheck.remove(item_2)
   
     return(output_list)
 
 
-Controle_app.main_menu()
+General.main_menu()
 
