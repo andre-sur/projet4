@@ -1,63 +1,63 @@
 {
  "joueurs": [
   {
-   "surname": "Albert",
-   "firstname": "Alice",
+   "surname": "Alice",
+   "firstname": "Dupont",
    "birthday": "0"
   },
   {
-   "surname": "Beatrice",
-   "firstname": "Alice",
+   "surname": "Bernard",
+   "firstname": "Durand",
    "birthday": "0"
   },
   {
    "surname": "Carole",
-   "firstname": "Alice",
+   "firstname": "Lapierre",
    "birthday": "0"
   },
   {
-   "surname": "Denis",
-   "firstname": "Alice",
+   "surname": "Denise",
+   "firstname": "Chausson",
    "birthday": "0"
   },
   {
-   "surname": "Edouard",
-   "firstname": "Alice",
+   "surname": "Françoise",
+   "firstname": "Porte",
    "birthday": "0"
   },
   {
-   "surname": "Francois",
-   "firstname": "Alice",
+   "surname": "Gisèle",
+   "firstname": "Commode",
    "birthday": "0"
   },
   {
-   "surname": "Gérard",
-   "firstname": "Alice",
+   "surname": "Hugues",
+   "firstname": "Fauteuil",
    "birthday": "0"
   },
   {
-   "surname": "Hector",
-   "firstname": "Alice",
+   "surname": "Isidore",
+   "firstname": "Miroir",
    "birthday": "0"
   },
   {
-   "surname": "Isabelle",
-   "firstname": "Alice",
+   "surname": "Julia",
+   "firstname": "Lampe",
    "birthday": "0"
   },
   {
-   "surname": "Jules",
-   "firstname": "Alice",
+   "surname": "Kevin",
+   "firstname": "Frigo",
    "birthday": "0"
   },
   {
-   "surname": "Karl",
-   "firstname": "Alice",
+   "surname": "Laurent",
+   "firstname": "Ampoule",
    "birthday": "0"
   },
   {
-   "surname": "Louis",
-   "firstname": "Alice",
+   "surname": "Manuel",
+   "firstname": "Oreiller",
    "birthday": "0"
   }
 ]
