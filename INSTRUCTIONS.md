@@ -16,7 +16,7 @@ Alors s'affichent les données du tournoi choisi :
 On peut alors 
 + Modifier les données de base
 + Ajouter/modifier la liste des participants
-+ (Re)jouer les rounds : via "saisie manuelle" ou "aléatoire"
++ Jouer les rounds du tournoi (les enregistrer)
 
 Ou sélectionner un autre tournoi, ou quitter l'application.
 
@@ -29,53 +29,54 @@ Les données sont enregistrées (après confirmation) à chaque étape utile.
 
 #Application
 
-Il y a trois classes principales : 
-+ Une classe contenant les contrôleurs généraux
-+ Une classe Tournament contenant vue, modèle et contrôleur pour les tournois
-+ Une classe Player contenant les attributs des joueurs (et une méthode : add_player)
+Autant que possible, j'applique le modèle Modèle-Vue-Controle, en séparant les fonctions.
 
-1/ Classe General
+Concernant la présentation, afin que le code soit lisible, maintenable et réutilisable, je respecte les principes du PEP-8
++indentation par 4
++variable aussi explicite que possible
++espacement autour des opérateurs
++longueur des lignes
++underscore pour nom de variable/fonction
++camel case pour les classes
++snake_case pour les fonctions
++import en début de fichier
++utiliser les f-strings pour concaténation
 
-CONTROLE/VUE
-*play_match(mode,player1,player2) : jouer les matchs, round par round, en saisie ou aléatoire 
-*generate_set_players : génère liste de pairs non encore jouées (si possible)
+Des corrections manuelles ont été faites, ainsi qu'avec autopep8 et en utilisant flake8.
+Ne reste que des lignes "trop" longues, un peu plus de 79 caractères.
 
-MODELE
+Concernant la structure générale, il y a trois classes  : 
++ Une classe TournamentModel qui contient les attributs (et modèles)
++ Une classe TournamentControl qui contient les contrôles
++ Une classe TournamentView contenant les vues pour les tournois, notamment le menu principal et les sous-menus
++ Une classe Player contenant les attributs des joueurs 
+
+1/ Classe TournamentModel (attribut et MODELE)
+Elle contient les attributs d'un tournoi : nom, lieu, date départ/fin, liste des participants, archivage des matches joués...
+
+*upload_file : récupérer données tournoi d'un fichier json
 *load_tournament_from_json : alimente une instance de Tournament avec les données du fichier
 *list_of_tournament : récupère les méta-données sur les noms des tournois dans le fichier
-
-VUE
-*main_menu : menu principal 
-
-
-2/ Classe Tournament
-
-Accès fichier / données : sauvegarde et upload (MODELE)
-
 *change_specific_data : pour enregistrer dans json la liste de participants et les matches joués
 *change_data_file : pour enregistrer les données de base d'un tournoi (à partir d'un dictionnaire)
-*get_list_player_json : récupérer les données des joueurs et les affecter aux attributs de la Classe Player
 
-Interaction utilisateur (VUE)
+2/ Classe des VUES : TournamentView
 
-*choose_participants : pour choisir les participants à partir liste des joueurs 
-*play_round : jouer [x] rounds de [nbre participants/2] matches, avec option "input" (saisie manuelle) ou "random" (aléatoire). Utilise la fonction play_match
-La première liste est celle des participants puis une liste des meilleurs joueurs, avec une vérification qu'ils n'ont pas précédemment joué ensemble.
+*main_menu : menu général
+*choose_which_tournament : choisir le tournoi qu'on veut afficher parmi ceux enregistrés
+*menu_tournament : sous-menu pour un tournoi spécifique
+*change_participants : vérification condition pour demande de changer les participants
+*choose_participants : choix des participants parmi les joueurs existants (fichier json)
+*choose_howto_play : sous-menu pour choisir si jeu aléatoire ou saisie clavier
+*list_of_tournament : la liste des tournois, extraites du fichier json
 *input_data_tournament: saisie des données d'un tournoi (sauf matches et participants)
-
-3/ Classe Player
-
-Accès fichier / données : sauvegarde et upload (MODELE)
-
-*get_list_player_json : récupère la liste des joueurs dans le fichier les contenant
-*add_player : EN COURS
-
-VUE
 *list_of_participants : renvoie une liste des participants (séparés par virgule)
 *show_matches : extraction de tous les matchs d'un tournoi et affichage round par round
 
-CONTROLES
-*generate_set_players : on crée copie de la liste, on vérifie si première paire déjà jouée; si oui, on garde premier élément et on
-fait une paire avec l'élément suivant; on retire les éléments de la liste et on reprend le processus. Le but est d'avoir le moins de 
-paires jouées deux fois.
+3/ Classe des CONTROLES : TournamentControl
+*play_match(mode,player1,player2) : enregistre les scores des matchs, round par round
+*generate_set_players : génère liste de pairs non encore jouées (si possible)
+*play_round : jouer [x] rounds de [nbre participants/2] matches. Utilise la fonction play_match
 
+2/ Class Player
+*get_list_player_json : récupérer les données des joueurs et les affecter aux attributs de la Classe Player

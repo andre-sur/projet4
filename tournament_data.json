@@ -8,8 +8,8 @@
                 "Denis",
                 "Edouard",
                 "Francois",
-                "Gérard",
-                "Hector"
+                "Hector",
+                "Isabelle"
             ],
             "matches": [
                 [
@@ -26,30 +26,30 @@
                     [
                         [
                             "Carole",
-                            0.5
+                            0
                         ],
                         [
                             "Denis",
-                            0.5
+                            1
                         ]
                     ],
                     [
                         [
                             "Edouard",
-                            1
+                            0
                         ],
                         [
                             "Francois",
-                            0
+                            1
                         ]
                     ],
                     [
                         [
-                            "Gérard",
+                            "Hector",
                             0
                         ],
                         [
-                            "Hector",
+                            "Isabelle",
                             1
                         ]
                     ]
@@ -61,45 +61,65 @@
                             0
                         ],
                         [
-                            "Edouard",
+                            "Denis",
                             1
                         ]
                     ],
                     [
                         [
-                            "Hector",
-                            0.5
+                            "Francois",
+                            0
+                        ],
+                        [
+                            "Isabelle",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Albert",
+                            0
                         ],
                         [
                             "Carole",
-                            0.5
+                            1
                         ]
                     ],
                     [
                         [
-                            "Denis",
-                            0.5
+                            "Edouard",
+                            0
                         ],
                         [
-                            "Albert",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
-                            "Francois",
-                            0.5
-                        ],
-                        [
-                            "Gérard",
-                            0.5
+                            "Hector",
+                            1
                         ]
                     ]
                 ],
                 [
                     [
                         [
-                            "Edouard",
+                            "Denis",
+                            0
+                        ],
+                        [
+                            "Isabelle",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Beatrice",
+                            0
+                        ],
+                        [
+                            "Carole",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Francois",
                             0
                         ],
                         [
@@ -109,38 +129,18 @@
                     ],
                     [
                         [
-                            "Beatrice",
-                            0.5
-                        ],
-                        [
-                            "Carole",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
-                            "Denis",
-                            1
-                        ],
-                        [
-                            "Francois",
-                            0
-                        ]
-                    ],
-                    [
-                        [
                             "Albert",
-                            1
+                            0
                         ],
                         [
-                            "Gérard",
-                            0
+                            "Edouard",
+                            1
                         ]
                     ]
                 ]
             ],
-            "name": "Oui oui",
-            "location": "Paradis",
+            "name": "Ligue Ultima",
+            "location": "Marseille",
             "start": "2024-12-01",
             "end": "2024-12-05",
             "num_round": "3",
@@ -158,37 +158,27 @@
                     [
                         [
                             "Albert",
-                            0.5
+                            0
                         ],
                         [
                             "Beatrice",
-                            0.5
+                            1
                         ]
                     ],
                     [
                         [
                             "Carole",
-                            1
+                            0
                         ],
                         [
                             "Gérard",
-                            0
+                            1
                         ]
                     ]
                 ],
                 [
                     [
                         [
-                            "Carole",
-                            0.5
-                        ],
-                        [
-                            "Albert",
-                            0.5
-                        ]
-                    ],
-                    [
-                        [
                             "Beatrice",
                             0
                         ],
@@ -196,35 +186,117 @@
                             "Gérard",
                             1
                         ]
+                    ],
+                    [
+                        [
+                            "Albert",
+                            0
+                        ],
+                        [
+                            "Carole",
+                            1
+                        ]
                     ]
                 ]
             ],
-            "name": "Super Pros",
+            "name": "Chess Burger",
             "location": "Kuala Lumpur",
-            "start": "avril",
-            "end": "aout",
+            "start": "2025-02-15",
+            "end": "2025-03-01",
             "num_round": "2",
-            "description": "Près du port"
+            "description": "Sur inscription uniquement."
         },
         "3": {
             "players": [],
             "matches": [],
-            "name": "Le Club",
-            "location": "Marseille",
-            "start": "juin",
-            "end": "mai",
+            "name": "La Tour",
+            "location": "Lyon",
+            "start": "2024-03-01",
+            "end": "2024-03-15",
             "num_round": "2",
-            "description": "As u wish"
+            "description": "Inscription payante."
         },
         "4": {
-            "players": [],
-            "matches": [],
-            "name": "Le revoici",
+            "players": [
+                "Albert",
+                "Beatrice",
+                "Carole",
+                "Denis",
+                "Edouard",
+                "Francois"
+            ],
+            "matches": [
+                [
+                    [
+                        [
+                            "Albert",
+                            0
+                        ],
+                        [
+                            "Beatrice",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Carole",
+                            0
+                        ],
+                        [
+                            "Denis",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Edouard",
+                            0.5
+                        ],
+                        [
+                            "Francois",
+                            0.5
+                        ]
+                    ]
+                ],
+                [
+                    [
+                        [
+                            "Beatrice",
+                            0
+                        ],
+                        [
+                            "Denis",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Edouard",
+                            0
+                        ],
+                        [
+                            "Francois",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "Albert",
+                            0
+                        ],
+                        [
+                            "Carole",
+                            1
+                        ]
+                    ]
+                ]
+            ],
+            "name": "Le Pion",
             "location": "Madrid",
-            "start": "juin",
-            "end": "mai",
+            "start": "2024-04-01",
+            "end": "2025-04-15",
             "num_round": "2",
-            "description": "Réserver auprès de Sanchez"
+            "description": "Contactez Pedro Sanchez pour réservation."
         }
     }
 }
