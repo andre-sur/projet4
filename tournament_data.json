@@ -151,7 +151,7 @@
                 "Albert",
                 "Beatrice",
                 "Carole",
-                "Gérard"
+                "G\u00e9rard"
             ],
             "matches": [
                 [
@@ -171,7 +171,7 @@
                             0
                         ],
                         [
-                            "Gérard",
+                            "G\u00e9rard",
                             1
                         ]
                     ]
@@ -183,7 +183,7 @@
                             0
                         ],
                         [
-                            "Gérard",
+                            "G\u00e9rard",
                             1
                         ]
                     ],
@@ -296,7 +296,17 @@
             "start": "2024-04-01",
             "end": "2025-04-15",
             "num_round": "2",
-            "description": "Contactez Pedro Sanchez pour réservation."
+            "description": "Contactez Pedro Sanchez pour r\u00e9servation."
+        },
+        "5": {
+            "players": [],
+            "matches": [],
+            "name": "Test",
+            "location": "s",
+            "start": "s",
+            "end": "e",
+            "num_round": "2",
+            "description": "d"
         }
     }
 }

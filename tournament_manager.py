@@ -136,8 +136,8 @@ class TournamentView:
                 "Quel tournoi ? (0 pour en créer un) >>>")
         if chosen_tournament == "0":
             current_tournament = TournamentModel()
-            TournamentView.input_data_tournament(
-                (str(int(last_one)+1)), tournament=chosen_tournament)
+            TournamentView.input_data_tournament(current_tournament,
+                tournament=str(int(last_one)+1))
         else:
             current_tournament = TournamentModel.load_tournament_from_json(
                 chosen_tournament, file_name)
@@ -293,7 +293,7 @@ class TournamentView:
               "\nLa valeur par défaut est entre parenthèses"
               "\nTapez sur Entrée si pas de changement (valeur par défaut)"
               "\nChiffre entre 1 et 4 pour le nombre de rounds. \nMerci."
-              f"\n TOURNOI #{str(tournament)}")
+              f"\n Ce tournoi sera numéroté : #{str(tournament)}")
         for item1, item2, item3 in zip(input_text, categories, existing_data):
             data_update = f"{item1} - ({str(item3)})"
             if len(data_update) < 30:

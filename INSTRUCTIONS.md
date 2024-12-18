@@ -1,6 +1,6 @@
-NOTES EXPLICATIVES
+NOTES EXPLICATIVES - APPLICATION CHESS TOURNAMENT MANAGER
 
-Utilisation de l'application
+A. Utilisation de l'application
 
 Avant l'accès au menu est proposé le fichier source.
 Par défaut, c'est "tournament_data.json".
@@ -15,7 +15,7 @@ Alors s'affichent les données du tournoi choisi :
 
 On peut alors 
 + Modifier les données de base
-+ Ajouter/modifier la liste des participants
++ Ajouter/modifier la liste des participants (à partir de la base de joueurs)
 + Jouer les rounds du tournoi (les enregistrer)
 
 Ou sélectionner un autre tournoi, ou quitter l'application.
@@ -27,7 +27,7 @@ A noter :
 Les données sont enregistrées (après confirmation) à chaque étape utile.
 
 
-#Application
+B. Structure et fonctionnement général de l'application 
 
 Autant que possible, j'applique le modèle Modèle-Vue-Controle, en séparant les fonctions.
 
@@ -49,7 +49,7 @@ Concernant la structure générale, il y a trois classes  :
 + Une classe TournamentModel qui contient les attributs (et modèles)
 + Une classe TournamentControl qui contient les contrôles
 + Une classe TournamentView contenant les vues pour les tournois, notamment le menu principal et les sous-menus
-+ Une classe Player contenant les attributs des joueurs 
++ Une classe Player contenant les attributs des joueurs (récupérées d'un fichier json)
 
 1/ Classe TournamentModel (attribut et MODELE)
 Elle contient les attributs d'un tournoi : nom, lieu, date départ/fin, liste des participants, archivage des matches joués...
@@ -78,5 +78,4 @@ Elle contient les attributs d'un tournoi : nom, lieu, date départ/fin, liste de
 *generate_set_players : génère liste de pairs non encore jouées (si possible)
 *play_round : jouer [x] rounds de [nbre participants/2] matches. Utilise la fonction play_match
 
-2/ Class Player
-*get_list_player_json : récupérer les données des joueurs et les affecter aux attributs de la Classe Player
+
