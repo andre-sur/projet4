@@ -123,6 +123,18 @@ class TournamentModel:
             list_tournament += f"{str(tournament_id)} - {tournament_data['name']}\n"
         return list_tournament, tournament_id
 
+    def check_format_date (data):
+        pattern = r'^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9]{2}|20[0-4][0-9]|202[0-4])$'
+  
+        if re.match(pattern, data):
+            try:
+                jour, mois, annee = map(int, data.split('-'))
+                datetime(annee, mois, jour)
+                return True
+            except ValueError:
+                return False
+        else:
+            return False
 
 
-TournamentView.main_menu()
+

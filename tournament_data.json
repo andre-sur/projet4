@@ -2,149 +2,53 @@
     "tournaments": {
         "1": {
             "players": [
-                "Albert",
-                "Beatrice",
-                "Carole",
-                "Denis",
-                "Edouard",
-                "Francois",
-                "Hector",
-                "Isabelle"
+                "AB1001",
+                "AB1002",
+                "AB1003",
+                "AB1004",
+                "AB1005",
+                "AB1000"
             ],
             "matches": [
                 [
                     [
                         [
-                            "Albert",
+                            "AB1001",
                             0
                         ],
                         [
-                            "Beatrice",
+                            "AB1002",
                             1
                         ]
                     ],
                     [
                         [
-                            "Carole",
+                            "AB1003",
                             0
                         ],
                         [
-                            "Denis",
+                            "AB1004",
                             1
                         ]
                     ],
                     [
                         [
-                            "Edouard",
+                            "AB1005",
                             0
                         ],
                         [
-                            "Francois",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Hector",
-                            0
-                        ],
-                        [
-                            "Isabelle",
-                            1
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Beatrice",
-                            0
-                        ],
-                        [
-                            "Denis",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Francois",
-                            0
-                        ],
-                        [
-                            "Isabelle",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Albert",
-                            0
-                        ],
-                        [
-                            "Carole",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Edouard",
-                            0
-                        ],
-                        [
-                            "Hector",
-                            1
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Denis",
-                            0
-                        ],
-                        [
-                            "Isabelle",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Beatrice",
-                            0
-                        ],
-                        [
-                            "Carole",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Francois",
-                            0
-                        ],
-                        [
-                            "Hector",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Albert",
-                            0
-                        ],
-                        [
-                            "Edouard",
+                            "AB1000",
                             1
                         ]
                     ]
                 ]
             ],
-            "name": "Ligue Ultima",
-            "location": "Marseille",
-            "start": "2024-12-01",
-            "end": "2024-12-05",
+            "name": "Erdna",
+            "location": "Lyon",
+            "start": "01-11-2020",
+            "end": "02-12-2021",
             "num_round": "3",
-            "description": "A faire rapidement"
+            "description": "aabbcc"
         },
         "2": {
             "players": [
@@ -168,33 +72,11 @@
                     [
                         [
                             "Carole",
-                            0
+                            1
                         ],
                         [
                             "Gérard",
-                            1
-                        ]
-                    ]
-                ],
-                [
-                    [
-                        [
-                            "Beatrice",
                             0
-                        ],
-                        [
-                            "Gérard",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Albert",
-                            0
-                        ],
-                        [
-                            "Carole",
-                            1
                         ]
                     ]
                 ]
@@ -207,13 +89,65 @@
             "description": "Sur inscription uniquement."
         },
         "3": {
-            "players": [],
-            "matches": [],
+            "players": [
+                "AB1001",
+                "AB1002",
+                "AB1003",
+                "AB1004",
+                "AB1005",
+                "AB1000",
+                "MC9832",
+                "JK9888"
+            ],
+            "matches": [
+                [
+                    [
+                        [
+                            "AB1001",
+                            0
+                        ],
+                        [
+                            "AB1002",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "AB1003",
+                            1
+                        ],
+                        [
+                            "AB1004",
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            "AB1005",
+                            0
+                        ],
+                        [
+                            "AB1000",
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            "MC9832",
+                            0
+                        ],
+                        [
+                            "JK9888",
+                            1
+                        ]
+                    ]
+                ]
+            ],
             "name": "La Tour",
             "location": "Lyon",
             "start": "2024-03-01",
             "end": "2024-03-15",
-            "num_round": "2",
+            "num_round": "3",
             "description": "Inscription payante."
         },
         "4": {
@@ -307,6 +241,23 @@
             "end": "e",
             "num_round": "2",
             "description": "d"
+        },
+        "6": {
+            "players": [
+                "Alice",
+                "Bernard",
+                "Carole",
+                "Denise",
+                "Françoise",
+                "Gisèle"
+            ],
+            "matches": [],
+            "name": "Super Chess",
+            "location": "Tours",
+            "start": "",
+            "end": "",
+            "num_round": "2",
+            "description": "Nouveau tournoi"
         }
     }
 }

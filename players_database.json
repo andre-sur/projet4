@@ -1,64 +1,82 @@
 {
- "joueurs": [
-  {
-   "surname": "Alice",
-   "firstname": "Dupont",
-   "birthday": "0"
-  },
-  {
-   "surname": "Bernard",
-   "firstname": "Durand",
-   "birthday": "0"
-  },
-  {
-   "surname": "Carole",
-   "firstname": "Lapierre",
-   "birthday": "0"
-  },
-  {
-   "surname": "Denise",
-   "firstname": "Chausson",
-   "birthday": "0"
-  },
-  {
-   "surname": "Françoise",
-   "firstname": "Porte",
-   "birthday": "0"
-  },
-  {
-   "surname": "Gisèle",
-   "firstname": "Commode",
-   "birthday": "0"
-  },
-  {
-   "surname": "Hugues",
-   "firstname": "Fauteuil",
-   "birthday": "0"
-  },
-  {
-   "surname": "Isidore",
-   "firstname": "Miroir",
-   "birthday": "0"
-  },
-  {
-   "surname": "Julia",
-   "firstname": "Lampe",
-   "birthday": "0"
-  },
-  {
-   "surname": "Kevin",
-   "firstname": "Frigo",
-   "birthday": "0"
-  },
-  {
-   "surname": "Laurent",
-   "firstname": "Ampoule",
-   "birthday": "0"
-  },
-  {
-   "surname": "Manuel",
-   "firstname": "Oreiller",
-   "birthday": "0"
-  }
-]
+    "players": [
+        {
+            "id_number": "AB1001",
+            "surname": "Dupont",
+            "firstname": "Jean",
+            "birthdate": "1990-05-12"
+        },
+        {
+            "id_number": "AB1002",
+            "surname": "Martin",
+            "firstname": "Sophie",
+            "birthdate": "1987-09-23"
+        },
+        {
+            "id_number": "AB1003",
+            "surname": "Lemoine",
+            "firstname": "Pierre",
+            "birthdate": "1992-11-03"
+        },
+        {
+            "id_number": "AB1004",
+            "surname": "Lemoine",
+            "firstname": "Alice",
+            "birthdate": "1995-02-17"
+        },
+        {
+            "id_number": "AB1005",
+            "surname": "Bernard",
+            "firstname": "Marc",
+            "birthdate": "1989-07-30"
+        },
+        {
+            "id_number": "AB1000",
+            "surname": "Duroc",
+            "firstname": "Jean",
+            "birthdate": "1990-05-12"
+        },
+        {
+            "id_number": "MC9832",
+            "surname": "Martineau",
+            "firstname": "Claire",
+            "birthdate": "1985-09-30"
+        },
+        {
+            "id_number": "JK9888",
+            "surname": "Durand",
+            "firstname": "Albert",
+            "birthdate": "19-07-1956"
+        },
+        {
+            "id_number": "AB1006",
+            "surname": "Gauthier",
+            "firstname": "Claire",
+            "birthdate": "1984-03-09"
+        },
+        {
+            "id_number": "AB1007",
+            "surname": "Dupuis",
+            "firstname": "Luc",
+            "birthdate": "1991-06-17"
+        },
+        {
+            "id_number": "AB1008",
+            "surname": "Moreau",
+            "firstname": "Isabelle",
+            "birthdate": "1994-12-01"
+        },
+        {
+            "id_number": "AB1009",
+            "surname": "Faure",
+            "firstname": "Théo",
+            "birthdate": "1988-10-25"
+        },
+        {
+            "id_number": "RT8898",
+            "surname": "Hansen",
+            "firstname": "Jean",
+            "birthdate": "19-07-1973"
+        }
+    ]
 }
