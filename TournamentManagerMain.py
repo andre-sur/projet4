@@ -2,11 +2,8 @@ import time
 from datetime import datetime
 import re
 import json
-from Player import Player
 from pathlib import Path
-import TournamentView
-from TournamentControl import TournamentControl
-from TournamentModel import TournamentModel
+from Controller.TournamentControl import TournamentControl
 
-TournamentView.main_menu()
+TournamentControl.main_menu_controller()
 

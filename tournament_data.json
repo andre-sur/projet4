@@ -4,45 +4,14 @@
             "players": [
                 "AB1001",
                 "AB1002",
-                "AB1003",
-                "AB1004",
+                "TT7890",
+                "HJ9900",
                 "AB1005",
-                "AB1000"
+                "AB1000",
+                "KL9093",
+                "AB1008"
             ],
-            "matches": [
-                [
-                    [
-                        [
-                            "AB1001",
-                            0
-                        ],
-                        [
-                            "AB1002",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "AB1003",
-                            0
-                        ],
-                        [
-                            "AB1004",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "AB1005",
-                            0
-                        ],
-                        [
-                            "AB1000",
-                            1
-                        ]
-                    ]
-                ]
-            ],
+            "matches": [],
             "name": "Erdna",
             "location": "Lyon",
             "start": "01-11-2020",
@@ -57,30 +26,7 @@
                 "Carole",
                 "Gérard"
             ],
-            "matches": [
-                [
-                    [
-                        [
-                            "Albert",
-                            0
-                        ],
-                        [
-                            "Beatrice",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "Carole",
-                            1
-                        ],
-                        [
-                            "Gérard",
-                            0
-                        ]
-                    ]
-                ]
-            ],
+            "matches": [],
             "name": "Chess Burger",
             "location": "Kuala Lumpur",
             "start": "2025-02-15",

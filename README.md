@@ -1,35 +1,39 @@
 NOTES EXPLICATIVES - APPLICATION CHESS TOURNAMENT MANAGER
 
+Généralités
+On utilisera le modèle MVC
+Modèle : les données et structuration
+Vue : saisie et interaction utilisateur, affichage des données
+Controle : gestion interne
+
+Cela signifie:
+- Modèle n'appelle jamais ni Vue, ni Controle
+- Vue peut appeler Modèle mais pas Controle
+- Contrôle appele Vue et Modèle selon ses besoins
+
+Une fonction remplit une tâche déterminée avec uniquement le minimum de paramètres dont elle a besoin et renvoie ce pour quoi elle est destinée
+
+
 A. Utilisation de l'application
 
-Avant l'accès au menu est proposé le fichier source.
-Par défaut, c'est "tournament_data.json".
-Taper sur Entrée pour continuer.
+Un premier menu propose : 
+1. Gestion des joueurs
+2. Gestion des tournois
 
-Ensuite, affichage des tournois. On choisit celui qu'on veut, ou 0 pour en ajouter un.
+La Gestion des joueurs permet :
+1. Ajouter un joueur
+2. Modifier un joueur
 
-Alors s'affichent les données du tournoi choisi :
-+Données de Base : Nom, Lieu, Date de début et fin, Nombre de rounds, Description
-+Liste des participants (si elle existe)
-+Les Matches enregistrés (chaque round, qui vs qui, scores)
+La Gestion des tournois permet : 
+1. Afficher/Modifier les données d'un tournoi
+2. Modifier la liste des participants
+3. Jouer le dernier round (en cours).
 
-On peut alors 
-+ Modifier les données de base
-+ Ajouter/modifier la liste des participants (à partir de la base de joueurs)
-+ Jouer les rounds du tournoi (les enregistrer)
-
-Ou sélectionner un autre tournoi, ou quitter l'application.
-
-A noter :
-+ impossible de faire des matchs sans liste de participants (> 2 et pair)
-+ modifier les participants implique d'effacer les matches (cohérence)
-
-Les données sont enregistrées (après confirmation) à chaque étape utile.
 
 
 B. Structure et fonctionnement général de l'application 
 
-Autant que possible, j'applique le modèle Modèle-Vue-Controle, en séparant les fonctions.
+Modèle Modèle-Vue-Controle, en séparant les fonctions.
 
 Concernant la présentation, afin que le code soit lisible, maintenable et réutilisable, je respecte les principes du PEP-8
 +indentation par 4
@@ -42,40 +46,40 @@ Concernant la présentation, afin que le code soit lisible, maintenable et réut
 +import en début de fichier
 +utiliser les f-strings pour concaténation
 
-Des corrections manuelles ont été faites, ainsi qu'avec autopep8 et en utilisant flake8.
-Ne reste que des lignes "trop" longues, un peu plus de 79 caractères.
+A. LA PARTIE TOURNOI
 
-Concernant la structure générale, il y a trois classes  : 
-+ Une classe TournamentModel qui contient les attributs (et modèles)
-+ Une classe TournamentControl qui contient les contrôles
-+ Une classe TournamentView contenant les vues pour les tournois, notamment le menu principal et les sous-menus
-+ Une classe Player contenant les attributs des joueurs (récupérées d'un fichier json)
+1/ Le Contrôle
 
-1/ Classe TournamentModel (attribut et MODELE)
-Elle contient les attributs d'un tournoi : nom, lieu, date départ/fin, liste des participants, archivage des matches joués...
+Quatre catégories de controleurs
+a) des menus (menu principal et menu pour un tournoi)
+b) vérification (format, contenu d'entrées saisies)
+c) sauvegarde de données
+d) saisie de données
 
-*upload_file : récupérer données tournoi d'un fichier json
-*load_tournament_from_json : alimente une instance de Tournament avec les données du fichier
-*list_of_tournament : récupère les méta-données sur les noms des tournois dans le fichier
-*change_specific_data : pour enregistrer dans json la liste de participants et les matches joués
-*change_data_file : pour enregistrer les données de base d'un tournoi (à partir d'un dictionnaire)
+Chaque contrôleur utilise des "vues" dans TournamentView et puise des données dans TournamentModel.
 
-2/ Classe des VUES : TournamentView
+2/ Les Vues
+Cinq catégories de vues:
+a) des menus (principal et menu pour un tournoi)
+b) affichage de données simples (données d'un tournoi)
+c) saisie de données (round, données tournoi)
+d) sélection de données (choisir les participants)
+e) mise en forme de données (liste de matches déjà joués)
 
-*main_menu : menu général
-*choose_which_tournament : choisir le tournoi qu'on veut afficher parmi ceux enregistrés
-*menu_tournament : sous-menu pour un tournoi spécifique
-*change_participants : vérification condition pour demande de changer les participants
-*choose_participants : choix des participants parmi les joueurs existants (fichier json)
-*choose_howto_play : sous-menu pour choisir si jeu aléatoire ou saisie clavier
-*list_of_tournament : la liste des tournois, extraites du fichier json
-*input_data_tournament: saisie des données d'un tournoi (sauf matches et participants)
-*list_of_participants : renvoie une liste des participants (séparés par virgule)
-*show_matches : extraction de tous les matchs d'un tournoi et affichage round par round
+3/ Le Modèle
 
-3/ Classe des CONTROLES : TournamentControl
-*play_match(mode,player1,player2) : enregistre les scores des matchs, round par round
-*generate_set_players : génère liste de pairs non encore jouées (si possible)
-*play_round : jouer [x] rounds de [nbre participants/2] matches. Utilise la fonction play_match
+Catégorie
+a) lire un fichier json
+b) enregistrer sur un fichier json
+c) classe Tournament et ses attributs (nom, date, lieu, description)
+d) vérifier un format (modèle? contrôle?)
+e) extraire des données via procédure : modèle
 
+B. LA PARTIE PLAYER
+
+Modèle
+
+Vues
+
+Contrôle
 

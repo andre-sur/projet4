@@ -4,12 +4,9 @@ import re
 import json
 from Player import Player
 from pathlib import Path
-from Model.TournamentModel import TournamentModel
+from TournamentModel import TournamentModel
 
 class TournamentView:
-
-    def display_text(text_string):
-        print(text_string)
 
     def show_list_tournament(file_name):
         all_tournaments = TournamentModel.list_of_tournament(
@@ -114,7 +111,10 @@ class TournamentView:
         for item1, item2 in zip(label_data,corresponding_data):
             print(item1 + " " * (30-len(item1)) + ":"+ item2)
 
-    def input_data_tournament(current_tournament):
+
+    def input_data_tournament(index_tournament):
+        current_tournament = TournamentModel.load_tournament_from_json(
+        index_tournament, "tournament_data.json")
         input_data = {}
         input_text = ["Nom", "Lieu", "Date de début",
                       "Date de fin", "Nombre de rounds", "Description"]
@@ -149,9 +149,23 @@ class TournamentView:
                 else:
                     input_data[item2] = new_data
                     check_answer=True
+        
+        TournamentView.save_basic_datas(input_data,index_tournament)
         return input_data
 
-    
+    def save_basic_datas (input_data,index_tournament):
+       
+        confirmation = ""
+        while confirmation not in ["o", "n"]:
+            confirmation = input(
+                f"Voulez-vous sauvegarder ces changements du Tournoi # {str(index_tournament)} (o/n)?\n>>>")
+            if confirmation == "n":
+                TournamentView.main_menu()
+            elif confirmation == "o":
+                TournamentModel.change_tournament_record(
+                    tournament=index_tournament, name_file="tournament_data.json", new_dict=input_data)
+                TournamentView.record()
+                TournamentView.main_menu()
         
     def record():
         print("Enregistrement en cours...")
@@ -162,7 +176,7 @@ class TournamentView:
 
     
     def play_match(id_player1, id_player2):
-#modele player
+
         name_player1=Player.find_name_with_code (id_player1)
         name_player2=Player.find_name_with_code (id_player2)
 

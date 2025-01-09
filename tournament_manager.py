@@ -5,7 +5,7 @@ import json
 from Player import Player
 from pathlib import Path
 from TournamentView import TournamentView
-from TournamentControl import TournamentControl
+from Controller.TournamentControl import TournamentControl
 
 class TournamentModel:
     def __init__(self, id="id", name="", location="", start="", end="",

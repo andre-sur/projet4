@@ -5,6 +5,7 @@ from datetime import datetime
 
 class Player:
 
+#MODELES
     all_players=[]
     def __init__(self, surname, firstname, birthdate, id_number):
         self.surname = surname
@@ -17,7 +18,6 @@ class Player:
         return f"ID Number: {self.id_number}, Surname: {self.surname}, Firstname: {self.firstname}, Birthdate: {self.birthdate}"
 
     def get_all_id(self):
-        # Méthode de classe pour extraire tous les prénoms
         return [player.id_number for player in Player.all_players]
 
     def get_list_player_json(name_file):
@@ -28,10 +28,10 @@ class Player:
     def change_specific_data(index,name_file, key_to_change, new_value):
         with open(name_file, 'r', encoding='utf-8') as file:
             data = json.load(file)
-            if index not in data["players"]:
-                data["players"][index][key_to_change].append(new_value)
-            else:
-                data["players"][index][key_to_change] = new_value
+            #if index not in data["players"]:
+               # data["players"][index][key_to_change].append(new_value)
+            #else:
+            data["players"][index][key_to_change] = new_value
         with open(name_file, 'w', encoding='utf-8') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
@@ -63,6 +63,31 @@ class Player:
         else:
             return False
 
+    def extract_list_players(data):
+        players = []
+        for player_data in data['players']:
+            player = Player(
+                id_number=player_data['id_number'],
+                surname=player_data['surname'],
+                firstname=player_data['firstname'],
+                birthdate=player_data['birthdate']
+            )
+            players.append(player)
+        
+        return players
+  #vue  
+    def print_list_players():
+        current_list=Player.get_list_players()
+        for index, player in enumerate(current_list):
+            print(f"[{index}]{player.id_number} - {player.firstname} {player.surname} (né.e le : {player.birthdate})")
+    #modele
+    def get_list_players():
+        raw_data=Player.get_list_player_json("players_database.json")
+        list_players=Player.extract_list_players(raw_data)
+        return(list_players)
+    
+#CONTROLE / VUE
+
     def change_one_item (choice,current_list):
         choice=int(choice)
         input_data={}
@@ -85,7 +110,7 @@ class Player:
 
         new_birthdate=""
         while Player.check_format_birthdate(new_birthdate)==False:
-            print("Le format doit être JJMMAAAA")
+            print("Le format doit être JJ-MM-AAAA")
             new_birthdate=input(f"Date de naissance - ({current_list[choice].birthdate})")
         current_list[choice].birthdate=new_birthdate
 
@@ -100,13 +125,17 @@ class Player:
         print(current_list[choice].birthdate)
         print(current_list[choice].id_number)
 
-        save_or_not=input("Voulez vous sauvegarder ces données ? (o/n)")
-        if save_or_not=="o":
-            Player.change_specific_data(choice,"players_database.json", "id_number", new_id)
-            Player.change_specific_data(choice,"players_database.json", "firstname", new_firstname)
-            Player.change_specific_data(choice,"players_database.json", "surname", new_surname)
-            Player.change_specific_data(choice,"players_database.json", "birthdate", new_birthdate)
-
+        save_or_not=""
+        while save_or_not not in ["o","n"]:
+            save_or_not=input("Voulez vous sauvegarder ces données ? (o/n)")
+            if save_or_not=="o":
+                Player.change_specific_data(choice,"players_database.json", "id_number", new_id)
+                Player.change_specific_data(choice,"players_database.json", "firstname", new_firstname)
+                Player.change_specific_data(choice,"players_database.json", "surname", new_surname)
+                Player.change_specific_data(choice,"players_database.json", "birthdate", new_birthdate)
+                return
+            else:
+                return
             #if new_data == "":
              #   input_data[item2] = item3
             #else:
@@ -114,18 +143,7 @@ class Player:
             #Player.change_specific_data(index,"players_database.json", item2, new_data)
         
 
-    def extract_list_players(data):
-        players = []
-        for player_data in data['players']:
-            player = Player(
-                id_number=player_data['id_number'],
-                surname=player_data['surname'],
-                firstname=player_data['firstname'],
-                birthdate=player_data['birthdate']
-            )
-            players.append(player)
-        
-        return players
+
 
     def add_player(current_list):
         index_new_player=len(current_list)
@@ -134,13 +152,30 @@ class Player:
         print("la longueur de la liste est désormais" + str(len(current_list)))
         Player.change_one_item (index_new_player,current_list)
         
-    def get_list_players():
-        raw_data=Player.get_list_player_json("players_database.json")
-        list_players=Player.extract_list_players(raw_data)
-        return(list_players)
-    
+    def check_input_choice_player(max_digit):
+        
+        while True:
+        # Demander à l'utilisateur de saisir une valeur
+            choice = input(f"Veuillez entrer un chiffre entre 0 et {max_digit-1} ou 'x' pour quitter : ")
+
+        # Vérifier si l'entrée est 'x'
+            if choice == 'x':
+                print("Vous avez choisi d'ajouter un joueur'.")
+                return choice
+
+        # Vérifier si l'entrée est un chiffre entre 1 et 10
+            if choice.isdigit():
+                nombre = int(choice)
+                if 0 <= nombre <= max_digit:
+                    return str(nombre)
+                else:
+                    print(f"Erreur : Le chiffre doit être entre 0 et {max_digit-1}.")
+            else:
+                print(f"Erreur : Veuillez entrer un chiffre entre 0 et {max_digit-1} ou 'x' pour ajouter un joueur.")
+
     def change_player():
         current_list=Player.get_list_players()
+        Player.print_list_players()
         input_data = {}
         input_text = ["Identifiant", "Prénom", "Nom",
                       "Date de naissance"]
@@ -149,14 +184,14 @@ class Player:
        # existing_data = [current_list.id_number, current_list.firstname, current_list.surname,
        #                  current_list.birthdate]
         print ("Entrez le numéro du joueur pour le changer ou X pour en ajouter.")
-        for index, player in enumerate(current_list):
-            print(f"[{index}]{player.id_number} - {player.firstname} {player.surname} (né.e le : {player.birthdate})")
-        choice=input("Votre choix : ")
-        if choice=="X":
-            Player.add_player(current_list)
-        else:
-            print(f"Votre choix c'est {current_list[int(choice)].firstname}")
+        choice=Player.check_input_choice_player(max_digit=len(current_list))
+        if choice.isdigit():
+            print(f"\nVotre choix c'est {current_list[int(choice)].firstname}")
             Player.change_one_item (choice,current_list)
+        if choice=="x":
+            Player.add_player
+        
+        return choice
     
 """
 list=Player.get_list_player_json("players_database.json")
