@@ -8,16 +8,16 @@
                 "HJ9900",
                 "AB1005",
                 "AB1000",
-                "KL9093",
-                "AB1008"
+                "MC9832",
+                "JK9888"
             ],
             "matches": [],
-            "name": "Erdna",
+            "name": "SuperBowl",
             "location": "Lyon",
-            "start": "01-11-2020",
-            "end": "02-12-2021",
-            "num_round": "3",
-            "description": "aabbcc"
+            "start": "19-08-2022",
+            "end": "19-08-2023",
+            "num_round": "2",
+            "description": "test texte ici"
         },
         "2": {
             "players": [
@@ -38,57 +38,12 @@
             "players": [
                 "AB1001",
                 "AB1002",
-                "AB1003",
-                "AB1004",
+                "TT7890",
+                "HJ9900",
                 "AB1005",
-                "AB1000",
-                "MC9832",
-                "JK9888"
+                "AB1000"
             ],
-            "matches": [
-                [
-                    [
-                        [
-                            "AB1001",
-                            0
-                        ],
-                        [
-                            "AB1002",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "AB1003",
-                            1
-                        ],
-                        [
-                            "AB1004",
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            "AB1005",
-                            0
-                        ],
-                        [
-                            "AB1000",
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            "MC9832",
-                            0
-                        ],
-                        [
-                            "JK9888",
-                            1
-                        ]
-                    ]
-                ]
-            ],
+            "matches": [],
             "name": "La Tour",
             "location": "Lyon",
             "start": "2024-03-01",

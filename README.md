@@ -1,5 +1,13 @@
 NOTES EXPLICATIVES - APPLICATION CHESS TOURNAMENT MANAGER
 
+correction auto pep8
+autopep8 --in-place --recursive .
+flake8 .
+puis flake8
+variable inutilisée
+conditions pas claires
+too lo,ng autopep8 --in-place --max-line-length 79 --recursive .
+
 Généralités
 On utilisera le modèle MVC
 Modèle : les données et structuration
