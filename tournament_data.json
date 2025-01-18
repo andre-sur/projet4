@@ -4,91 +4,40 @@
             "players": [
                 "AB1001",
                 "AB1002",
-                "TT7890",
-                "HJ9900",
+                "AB1003",
+                "AB1004",
                 "AB1005",
-                "AB1000",
-                "MC9832",
-                "JK9888"
-            ],
-            "matches": [],
-            "name": "SuperBowl",
-            "location": "Lyon",
-            "start": "19-08-2022",
-            "end": "19-08-2023",
-            "num_round": "2",
-            "description": "test texte ici"
-        },
-        "2": {
-            "players": [
-                "Albert",
-                "Beatrice",
-                "Carole",
-                "Gérard"
-            ],
-            "matches": [],
-            "name": "Chess Burger",
-            "location": "Kuala Lumpur",
-            "start": "2025-02-15",
-            "end": "2025-03-01",
-            "num_round": "2",
-            "description": "Sur inscription uniquement."
-        },
-        "3": {
-            "players": [
-                "AB1001",
-                "AB1002",
-                "TT7890",
-                "HJ9900",
-                "AB1005",
-                "AB1000"
-            ],
-            "matches": [],
-            "name": "La Tour",
-            "location": "Lyon",
-            "start": "2024-03-01",
-            "end": "2024-03-15",
-            "num_round": "3",
-            "description": "Inscription payante."
-        },
-        "4": {
-            "players": [
-                "Albert",
-                "Beatrice",
-                "Carole",
-                "Denis",
-                "Edouard",
-                "Francois"
+                "AB1006"
             ],
             "matches": [
                 [
                     [
                         [
-                            "Albert",
-                            0
+                            "AB1001",
+                            1
                         ],
                         [
-                            "Beatrice",
-                            1
+                            "AB1002",
+                            0
                         ]
                     ],
                     [
                         [
-                            "Carole",
-                            0
+                            "AB1003",
+                            1
                         ],
                         [
-                            "Denis",
-                            1
+                            "AB1004",
+                            0
                         ]
                     ],
                     [
                         [
-                            "Edouard",
+                            "AB1005",
                             0.5
                         ],
                         [
-                            "Francois",
+                            "AB1006",
                             0.5
                         ]
                     ]
@@ -96,69 +45,71 @@
                 [
                     [
                         [
-                            "Beatrice",
-                            0
+                            "AB1001",
+                            1
                         ],
                         [
-                            "Denis",
-                            1
+                            "AB1003",
+                            0
                         ]
                     ],
                     [
                         [
-                            "Edouard",
-                            0
+                            "AB1005",
+                            1
                         ],
                         [
-                            "Francois",
-                            1
+                            "AB1006",
+                            0
                         ]
                     ],
                     [
                         [
-                            "Albert",
-                            0
+                            "AB1002",
+                            1
                         ],
                         [
-                            "Carole",
-                            1
+                            "AB1004",
+                            0
                         ]
                     ]
                 ]
             ],
-            "name": "Le Pion",
-            "location": "Madrid",
-            "start": "2024-04-01",
-            "end": "2025-04-15",
-            "num_round": "2",
-            "description": "Contactez Pedro Sanchez pour réservation."
+            "name": "La Tour",
+            "location": "Lyon",
+            "start": "2024-03-01",
+            "end": "2024-03-15",
+            "num_round": "3"
         },
-        "5": {
+        "2": {
             "players": [],
             "matches": [],
-            "name": "Test",
-            "location": "s",
-            "start": "s",
-            "end": "e",
+            "name": "Championnat Sud",
+            "location": "Marseille",
+            "start": "2024-04-10",
+            "end": "2024-04-20",
             "num_round": "2",
-            "description": "d"
+            "description": "Tournoi de qualification pour les championnats nationaux."
         },
-        "6": {
-            "players": [
-                "Alice",
-                "Bernard",
-                "Carole",
-                "Denise",
-                "Françoise",
-                "Gisèle"
-            ],
+        "3": {
+            "players": [],
             "matches": [],
-            "name": "Super Chess",
-            "location": "Tours",
-            "start": "",
-            "end": "",
+            "name": "Coup de France",
+            "location": "Paris",
+            "start": "2024-05-01",
+            "end": "2024-05-10",
             "num_round": "2",
-            "description": "Nouveau tournoi"
+            "description": "Compétition ouverte à tous les joueurs français."
+        },
+        "4": {
+            "players": [],
+            "matches": [],
+            "name": "Open de Paris",
+            "location": "Paris",
+            "start": "2024-06-01",
+            "end": "2024-06-10",
+            "num_round": "3",
+            "description": "Tournoi de prestige avec des prix importants."
         }
     }
 }

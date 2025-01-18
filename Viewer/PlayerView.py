@@ -1,6 +1,4 @@
-
 from Model.PlayerModel import Player
-
 
 class PlayerView:
 
@@ -9,7 +7,7 @@ class PlayerView:
         for index, player in enumerate(current_list):
             print(
                 f"[{index}]{player.id_number} - {player.firstname}"
-                "{player.surname} (né.e le : {player.birthdate})")
+                f" {player.surname} (né.e le : {player.birthdate})")
 
     def display_text(text_string):
         print(text_string)

@@ -1,18 +1,16 @@
 import time
-
 from Model.PlayerModel import Player
 from Model.TournamentModel import TournamentModel
 
 
 class TournamentView:
-
     def display_text(text_string):
         print(text_string)
 
-
-
-    
-
+    def hit_enter(string_question):
+        answer = "c"
+        while answer not in [""]:
+            answer = input(string_question)
 
     def show_list_tournament(file_name):
         all_tournaments = TournamentModel.list_of_tournament(
@@ -30,20 +28,19 @@ class TournamentView:
         while chosen_tournament not in list_options:
             chosen_tournament = input(
                 "Quel tournoi ? (0 pour en créer un) >>>")
-
         return (chosen_tournament)
 
     def menu_tournament(index_tournament):
-        current_tournament = TournamentView.show_basic_tournament(
+        TournamentView.show_name_tournament(
             index_tournament)
-        # x,y,z,w=current_tournament.get_matches()
         choice = ""
-        while choice not in ["1", "2", "3", "4"]:
+        while choice not in ["1", "2", "3", "4", "5", "6"]:
             choice = input("  (1) Modifier ce tournoi (données de base) "
                            "\n  (2) Ajouter/Modifier la liste des participants"
-                           "\n  (3) Jouer le match #  (total "
-                           f"{current_tournament.num_round})"
-                           "\n  (4) Quitter l'application."
+                           "\n  (3) Jouer le match suivant "
+                           "\n  (4) Voir les matches déjà joués."
+                           "\n  (5) Voir les données de base de ce tournoi."
+                           "\n  (6) Quitter l'application."
                            "\n   >>>")
             return (choice)
 
@@ -52,10 +49,10 @@ class TournamentView:
             index_tournament, "tournament_data.json")
         view_matches = current_tournament.get_matches_display()
         print("MATCHES DEJA JOUES")
+        print(view_matches)
         return (view_matches)
 
     def main_menu():
-
         print("♔  CHESS TOURNAMENT MANAGER ♔ \n♖  MENU PRINCIPAL ♖")
         print("1> Gestion des joueurs")
         print("2> Gestion des tournois")
@@ -85,7 +82,6 @@ class TournamentView:
                              " " + player.surname +
                              " [" + player.id_number + "]" +
                              space_padding + "  : ")
-
             if decision == "x" or decision == "X":
                 chosen_list.append(player.id_number)
         text_chosen_list = ", ".join(chosen_list)
@@ -94,10 +90,11 @@ class TournamentView:
     def ask_save_or_not(text_chosen_list):
         print(
             f"Voici la liste des joueurs demandée : {text_chosen_list}")
-        print("(1) Confirmer et sauvegarder"
-              "\n(2) Annuler et retour au Menu")
+        print("(1) Sauvegarder et retour au Menu tournoi\n"
+              "(2) Annuler et retour au Menu tournoi"
+              "\n(3) Annuler et retour au Menu principal")
         decision = ""
-        while decision not in ["1", "2"]:
+        while decision not in ["1", "2", "3"]:
             decision = input("Votre décision >>> ")
         return decision
 
@@ -119,10 +116,16 @@ class TournamentView:
         print(
             "Participants au tournoi " +
             f"({current_tournament.name}) :\n{participants}")
-        print(f"TOTAL ROUNDS ({str(current_tournament.num_round)}")
+        print(f"TOTAL ROUNDS :{str(current_tournament.num_round)}")
         return (current_tournament)
 
-        # print(self.get_ranking())
+    def show_name_tournament(index_tournament):
+        current_tournament = TournamentModel.load_tournament_from_json(
+            index_tournament, "tournament_data.json")
+        TournamentView.display_text(f"\n<TOURNOI #{str(index_tournament)}> " +
+                                    f"Nom :{current_tournament.name} "
+                                    f"- Lieu :{current_tournament.location}\n")
+
     def view_data_tournament(current_tournament):
         label_data = ["Nom", "Lieu", "Date de début",
                       "Date de fin", "Nombre de rounds", "Description"]
@@ -188,21 +191,20 @@ class TournamentView:
         print("Enregistrement confirmé.")
 
     def play_match(id_player1, id_player2):
-        # modele player
         name_player1 = Player.find_name_with_code(id_player1)
         name_player2 = Player.find_name_with_code(id_player2)
-
-        choice = f"1.{name_player1} [{id_player2}] a gagné \n2.{name_player2}"
-        f"[{id_player2}] a gagné \n0. Match nul. \n>>>"
+        choice = f"1.{name_player1} a gagné \n"\
+                 f"2. {name_player2} a gagné \n"\
+                 "0. Match nul. \n>>>"
         result = ""
         while result not in ["1", "2", "0"]:
             result = input(choice)
         if result == "1":
-            score1 = 0
-            score2 = 1
-        if result == "2":
             score1 = 1
             score2 = 0
+        if result == "2":
+            score1 = 0
+            score2 = 1
         if result == "0":
             score1 = 0.5
             score2 = 0.5

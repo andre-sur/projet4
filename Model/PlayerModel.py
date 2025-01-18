@@ -5,18 +5,19 @@ from datetime import datetime
 
 class Player:
 
-    # MODELES
-    # all_players=[]
+    all_players = []
+
     def __init__(self, surname, firstname, birthdate, id_number):
         self.surname = surname
         self.firstname = firstname
         self.birthdate = birthdate
         self.id_number = id_number
+        Player.all_players.append(self)
 
     def __str__(self):
-        return f"ID Number: {self.id_number},"
-        + f"Surname: {self.surname}, Firstname: {self.firstname},"
-        + f"Birthdate: {self.birthdate}"
+        return f"ID Number: {self.id_number},"\
+            f"Surname: {self.surname}, Firstname: {self.firstname},"\
+            f"Birthdate: {self.birthdate}"
 
     def get_all_id(self):
         return [player.id_number for player in Player.all_players]
@@ -29,22 +30,27 @@ class Player:
     def change_specific_data(index, name_file, key_to_change, new_value):
         with open(name_file, 'r', encoding='utf-8') as file:
             data = json.load(file)
-            # if index not in data["players"]:
-            # data["players"][index][key_to_change].append(new_value)
-            # else:
-            data["players"][index][key_to_change] = new_value
+            if index+1 > len(data["players"]):
+                data["players"].append({
+                    "id_number": "",
+                    "firstname": "",
+                    "surname": "",
+                    "birthdate": ""})
+                data["players"][index][key_to_change] = new_value
+            else:
+                data["players"][index][key_to_change] = new_value
         with open(name_file, 'w', encoding='utf-8') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
+        return
 
     def find_name_with_code(what_code):
         all_data = Player.get_list_player_json("players_database.json")
         list_players = Player.extract_list_players(all_data)
         for player in list_players:
             if player.id_number == what_code:
-                # Retourne le nom du joueur correspondant
-                return f"[{player.id_number}] - {player.firstname} "
-                +f"{player.surname}"
-        return "pas trouvé"
+                return (f"[{player.id_number}] "
+                        f"{player.firstname} {player.surname}")
+        return ""
 
     def check_format_id(data):
         pattern = r'^[A-Za-z]{2}\d{4}$'
@@ -54,9 +60,10 @@ class Player:
             return False
 
     def check_format_birthdate(data):
-        pattern = r'''^(0[1-9]|[12][0-9]|3[01])-
-               (0[1-9]|1[0-2])-
-               (19[0-9]{2}|20[0-4][0-9]|202[0-4])$'''
+        j = r'^(0[1-9]|[12][0-9]|3[01])'
+        m = r'(0[1-9]|1[0-2])'
+        a = r'(19[0-9]{2}|20[0-4][0-9]|202[0-4])$'
+        pattern = j + '-' + m + '-' + a
         if re.match(pattern, data):
             try:
                 jour, mois, annee = map(int, data.split('-'))
