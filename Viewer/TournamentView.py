@@ -9,6 +9,11 @@ class TournamentView:
     def display_text(text_string):
         print(text_string)
 
+
+
+    
+
+
     def show_list_tournament(file_name):
         all_tournaments = TournamentModel.list_of_tournament(
             file_name)
